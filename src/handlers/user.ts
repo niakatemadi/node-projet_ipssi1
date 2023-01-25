@@ -31,15 +31,15 @@ export const createNewUser: RequestHandler = async (req: TypedRequestParam, res)
     res.status(400).json({ error: e?.toString() })
   }
 }
-/*
+
 export const signIn: RequestHandler = async (req: TypedRequestParam, res) => {
   try {
     if (!(req.body?.username && req.body?.password)) {
       throw new Error('Invalid body provided')
     }
-    const user = await db.user.findUnique({
+    const user = await db.user.findFirst({
       where: {
-        username: req.body.username
+        name: req.body.username
       }
     })
   
@@ -51,9 +51,9 @@ export const signIn: RequestHandler = async (req: TypedRequestParam, res) => {
       }
 
       const token = createJWT(user)
-      return res.status(200).json({ token })
+      return res.status(200).json({ userData : { name :req.body.username , token : token} })
     }
   } catch(e) {
     return res.status(400).json({ error: e?.toString() })
   }
-}*/
+}

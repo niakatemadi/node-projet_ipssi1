@@ -1,13 +1,14 @@
 const express = require('express');
-
+const db = require('../db');
 const app = express.Router();
 
-app.post('/', (req,res) => {
-    console.log(req.body.name)
+app.post('/create', async (req,res) => {
 
-    res.status(201).send({
-        message : req.body.name
-    })
+   // const userId = req.body.user.id;
+    
+    const datas = await db.
+
+    res.status(201).send({datas});
 });
 
 module.exports = app;
