@@ -5,7 +5,7 @@ import * as bcrypt from 'bcrypt'
 
 export const createJWT = (user: User) => {
   const token = jwt.sign(
-    { id: user.id, username: user.name },
+    { id: user.id, username: user.name, role : user.role },
     process.env.JWT_SECRET as string
   );
 
@@ -31,7 +31,6 @@ export const protect: RequestHandler = (req, res, next) => {
     }
     const payload = jwt.verify(token, process.env.JWT_SECRET) as User
     req.body.user = payload;
-    //req.user = payload
     return next()
   } catch(e) {
     return res.status(401).json({ message: 'Not authorized' })

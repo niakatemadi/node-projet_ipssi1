@@ -4,8 +4,8 @@
       "outDir": "dist",
       "rootDir": "src",
       "strict": true,
-      "lib": ["esnext"],
+      "lib": ["esnext","DOM"],
       "esModuleInterop": true
     },
-    "include": ["src/**/*.ts", "src/routes/userRoutes.js", "src/routes/userRoutes.js", "src/routes/postRoutes.js", "src/routes/postRoutes.js", "src/routes/commentRoutes.js", "src/routes/commentRoutes.js"]
+    "include": ["src/**/*.ts", "src/routes/userRoutes.ts", "src/routes/userRoutes.ts", "src/routes/postRoutes.ts", "src/routes/postRoutes.ts", "src/routes/commentRoutes.ts", "src/routes/commentRoutes.ts"]
 }
