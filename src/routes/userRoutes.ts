@@ -1,6 +1,5 @@
 import express from 'express';
-import db from '../db'
-const {createJWT} = require('../modules/auth')
+import db from '../db';
 
 const app = express.Router();
 
@@ -14,7 +13,7 @@ app.get('/:userId',async(req,res) => {
     
         res.status(201).send(userDatas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during retrieve user datas'})
     }
 })
 
@@ -31,7 +30,7 @@ app.put('/:userId',async(req,res) => {
     
         res.status(201).send(userUpdated);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during update user data'})
     }
 })
 

@@ -16,7 +16,7 @@ app.post('/', async (req, res) => {
 
         res.status(201).send(datas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during post creation'})
     }
     
 });
@@ -52,7 +52,7 @@ app.put('/:postId', async (req, res) => {
 
         res.status(201).send(datas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during post update'})
     }
     
 });
@@ -93,7 +93,7 @@ app.delete('/:postId', async (req, res) => {
 
         res.status(201).send(transaction);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during post delete'})
     }
     
 })
@@ -120,7 +120,7 @@ app.get('/allPosts', async (req, res) => {
 
         res.status(201).send(posts);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error all posts retrieve'})
     }
     
 });
@@ -137,7 +137,7 @@ app.get('/allPosts/:userId', async (req, res) => {
 
     res.status(201).send(datas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during get of posts of a single user'})
     }
     
 });

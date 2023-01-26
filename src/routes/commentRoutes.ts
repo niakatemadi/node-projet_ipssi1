@@ -15,7 +15,7 @@ app.post('/create', async (req,res) => {
  
         return res.status(201).send(datas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error during comment création'})
+        return res.status(400).json({e:e || 'Error during comment creation'})
     }
         
         
@@ -25,8 +25,6 @@ app.post('/create', async (req,res) => {
 app.get('/comments/:postId', async (req, res) => {
     try 
     {
-        const userId = req.body.user.id;
-
         const postTargeted = await db.post.findUnique({
             where : {
                 id:req.params.postId
@@ -49,7 +47,7 @@ app.get('/comments/:postId', async (req, res) => {
 
         res.status(201).send(req.body.user);
     }catch(e){
-        return res.status(400).json({e:e || 'Error comment retrieve'})
+        return res.status(400).json({e:e || 'Error during comment retrieve'})
     }
     
 });
@@ -87,9 +85,8 @@ app.put('/:commentId', async (req, res) => {
 
         res.status(201).send(datas);
     }catch(e){
-        return res.status(400).json({e:e || 'Error duringdeletion'})
+        return res.status(400).json({e:e || 'Error during update comment'})
     }
-    
     
 });
 
