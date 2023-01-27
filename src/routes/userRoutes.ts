@@ -5,11 +5,16 @@ const app = express.Router();
 
 app.get('/:userId',async(req,res) => {
     try {
-        const userDatas = await db.user.findUnique({
+        const datas = await db.user.findUnique({
             where : {
                 id: req.params.userId
             }
         })
+
+        const userDatas = {
+            name : datas?.name,
+            role : datas?.role
+        }
     
         res.status(201).send(userDatas);
     }catch(e){
@@ -24,11 +29,11 @@ app.put('/:userId',async(req,res) => {
                 id: req.params.userId
             },
             data : {
-                name : req.body.name
+                name : req.body.username
             }
         })
     
-        res.status(201).send(userUpdated);
+        res.status(201).send('username updated !');
     }catch(e){
         return res.status(400).json({e:e || 'Error during update user data'})
     }
@@ -36,11 +41,13 @@ app.put('/:userId',async(req,res) => {
 
 app.delete('/:userId',async(req,res) => {
     try{
-        const userDeleted = await db.user.delete({
+        const datas = await db.user.delete({
             where : {
                 id: req.params.userId
             }
         })
+
+        const userDeleted = `user ${datas.name} deleted !`;
     
         res.status(201).send(userDeleted);
     }catch(e){

@@ -59,7 +59,7 @@ export const signIn: RequestHandler = async (req: TypedRequestParam, res) => {
       }
 
       const token = createJWT(user)
-      return res.status(200).json({ userData : {name :req.body.username , token : token} })
+      return res.status(200).json({ userDatas : {name :req.body.username , token : token} })
     }
   } catch(e) {
     return res.status(400).json({ error: e?.toString() })

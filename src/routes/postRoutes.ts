@@ -105,7 +105,7 @@ app.get('/allPosts', async (req, res) => {
         if(typeof timestamp !== 'string')
         {
             return res.status(200).send({
-                error : 'Timestamp dois etre un number !'
+                error : 'Timestamp dois etre de type number !'
             })
         }
         const Fromdate = new Date(parseInt(timestamp)*1000);
